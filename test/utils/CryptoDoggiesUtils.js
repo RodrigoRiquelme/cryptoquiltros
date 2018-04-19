@@ -1,4 +1,4 @@
-module.exports = function (CryptoDoggies, accounts) {
+module.gexports = function (CryptoDoggies, accounts) {
     function checkDoggyCreation(age, name, dna) {
         it('createDoggy should be a doggy named ' + name, function(done){
             CryptoDoggies.deployed().then(async function(instance){
