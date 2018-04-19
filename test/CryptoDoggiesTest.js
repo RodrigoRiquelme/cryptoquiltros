@@ -2,6 +2,7 @@ var CryptoDoggies = artifacts.require('CryptoDoggies.sol');
 
 contract('CryptoDoggies', function(accounts){
     var helpfulFunctions = require('./utils/CryptoDoggiesUtils')(CryptoDoggies, accounts);
+    console.log(helpfulFunctions);
     var hfn = Object.keys(helpfulFunctions);
 
     for (var i = 0; i < hfn.length; i++) {

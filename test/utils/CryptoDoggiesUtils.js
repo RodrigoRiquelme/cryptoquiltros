@@ -1,8 +1,8 @@
 module.exports = function (CryptoDoggies, accounts) {
     function checkDoggyCreation(age, name, dna) {
-        it('create should be a doggy named ' + name, function(done){
+        it('createDoggy should be a doggy named ' + name, function(done){
             CryptoDoggies.deployed().then(async function(instance){
-                await instance.create(age, name, dna, {
+                await instance.createDoggy(age, name, dna, {
                     from: accounts[0]
                 }).then(
                     function (result) {
@@ -11,9 +11,9 @@ module.exports = function (CryptoDoggies, accounts) {
                 );
             }).then(done).catch(done);
         });
+    };
 
-        return {
-            checkDoggyCreation: checkDoggyCreation
-        }
+    return {
+        checkDoggyCreation: checkDoggyCreation
     }
 }

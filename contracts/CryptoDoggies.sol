@@ -36,7 +36,7 @@ contract CryptoDoggies {
         dna: bytes5(0xffffffffff)
     });
 
-    function _createDoggy(uint _age, string _name, bytes5 _dna) public {
+    function createDoggy(uint _age, string _name, bytes5 _dna) public {
         Doggy memory _doggy = Doggy({
             age: _age,
             name: _name,
