@@ -31,6 +31,7 @@
   "dependencies": {
     "jsonfile": "^4.0.0",
     "npm": "^5.8.0",
+    "truffle-core": "^4.1.8",
     "web3": "^0.20.5",
     "zeppelin-solidity": "^1.7.0"
   },
