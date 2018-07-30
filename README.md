@@ -1,4 +1,4 @@
-# cryptodoggies-base
+# CryptoQuiltros
 
 In order to develop this contract the following steps were taken to setup the environment.
 
