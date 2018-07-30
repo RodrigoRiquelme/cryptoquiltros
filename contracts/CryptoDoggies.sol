@@ -66,7 +66,7 @@ contract CryptoDoggies is AccessControl, DetailedERC721 {
 
     function _generateRandomDna() private view returns (bytes5) {
         uint256 lastBlockNumber = block.number - 1;
-        bytes32 hashVal = bytes32(block.blockhash(lastBlockNumber));
+        bytes32 hashVal = bytes32(blockhash(lastBlockNumber));
         bytes5 dna = bytes5((hashVal & 0xffffffff) << 216);
         return dna;
     }
@@ -80,7 +80,7 @@ contract CryptoDoggies is AccessControl, DetailedERC721 {
         uint256 newTokenId = doggies.push(_doggy) - 1;
         tokenIdToPrice[newTokenId] = _price;
 
-        TokenCreated(newTokenId, _name, _dna, _price, _owner);
+        emit TokenCreated(newTokenId, _name, _dna, _price, _owner);
 
         _transfer(address(0), _owner, newTokenId);
     }
@@ -164,7 +164,7 @@ contract CryptoDoggies is AccessControl, DetailedERC721 {
         require(msg.value >= sellingPrice);
 
         _transfer(oldOwner, newOwner, _tokenId);
-        TokenSold(
+        emit TokenSold(
             _tokenId,
             doggies[_tokenId].name,
             doggies[_tokenId].dna,
@@ -229,7 +229,7 @@ contract CryptoDoggies is AccessControl, DetailedERC721 {
     function approve(address _to, uint256 _tokenId) public whenNotPaused onlyERC721 {
         require(_owns(msg.sender, _tokenId));
         tokenIdToApproved[_tokenId] = _to;
-        Approval(msg.sender, _to, _tokenId);
+        emit Approval(msg.sender, _to, _tokenId);
     }
 
     function transferFrom(address _from, address _to, uint256 _tokenId) public whenNotPaused onlyERC721 {
@@ -280,7 +280,7 @@ contract CryptoDoggies is AccessControl, DetailedERC721 {
             delete tokenIdToApproved[_tokenId];
         }
 
-        Transfer(_from, _to, _tokenId);
+        emit Transfer(_from, _to, _tokenId);
     }
 
     function _isContract(address addr) private view returns (bool) {

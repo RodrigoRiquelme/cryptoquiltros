@@ -24,3 +24,4 @@ module.exports = function (CryptoDoggies, accounts) {
         checkDoggyCreation: checkDoggyCreation,
     }
 }
+
