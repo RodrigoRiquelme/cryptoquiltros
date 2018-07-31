@@ -1,7 +1,7 @@
 {
   "name": "cryptodoggies",
   "version": "1.0.0",
-  "description": "Purchase your favourite Digital Crypto Doggies on the blockchain",
+  "description": "Purchase your favourite Digital Crypto Quiltros on the blockchain",
   "keywords": [
     "solidity",
     "ethereum",
@@ -11,12 +11,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/t04glovern/cryptodoggies.git"
+    "url": "git+https://github.com/RodrigoRiquelme/cryptoquiltros.git"
   },
   "bugs": {
-    "url": "https://github.com/t04glovern/cryptodoggies/issues"
+    "url": "https://github.com/RodrigoRiquelme/cryptoquiltros/issues"
   },
-  "homepage": "https://github.com/t04glovern/cryptodoggies",
   "devDependencies": {
     "bignumber.js": "^6.0.0",
     "dotenv": "^5.0.0",
