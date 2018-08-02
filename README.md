@@ -1,4 +1,11 @@
-# CryptoQuiltros
+<div align = "center">
+    <h1>CryptoQuiltros<em>DApp</em></h1>
+    <p>Purchase your favorite Doggies on the blockchain.</p>
+    <a href="https://www.ethereum.org/" target="_blank"><img src="https://img.shields.io/badge/Ethereum-ETH-blue.svg" alt="Ethereum"></a>
+    <a href="https://solidity.readthedocs.io" target="_blank"><img src="https://img.shields.io/badge/Solidity-%5E0.4.18-blue.svg" alt="Solidity"></a>
+    <a href="https://nodejs.org/" target="_blank"><img src="https://img.shields.io/badge/Node.js-%5E9.2.0-blue.svg" alt="Node.js"></a>
+</div>
+## Developing This Contract
 
 In order to develop this contract the following steps were taken to setup the environment.
 
