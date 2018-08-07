@@ -138,10 +138,10 @@ contract CryptoDoggies is AccessControl, DetailedERC721 {
     }
 
     function withdrawBalance(address _to, uint256 _amount) public onlyCEO {
-        require(_amount <= this.balance);
+        require(_amount <= address(this).balance);
 
         if (_amount == 0) {
-            _amount = this.balance;
+            _amount = address(this).balance;
         } 
 
         if (_to == address(0)) {
@@ -257,11 +257,11 @@ contract CryptoDoggies is AccessControl, DetailedERC721 {
     }
 
     function name() public view returns(string _name) {
-        _name = "CryptoDoggies";
+        _name = "CryptoQuiltros";
     }
 
     function symbol() public view returns(string _name) {
-        _name = "CDT";
+        _name = "CQT";
     }
 
     function _owns(address _claimant, uint256 _tokenId) private view returns (bool) {

@@ -12,7 +12,7 @@ contract AccessControl {
     bool public paused = false;
 
     /// @dev The AccessControl constructor sets the original C roles of the contract to the sender account
-    function AccessControl() public {
+    constructor() public {
         ceoAddress = msg.sender;
         cooAddress = msg.sender;
     }
