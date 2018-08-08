@@ -10,7 +10,7 @@ contract DetailedERC721 is ERC721 {
     function symbol() public view returns (string _symbol);
 }
 
-contract CryptoDoggies is AccessControl, DetailedERC721 {
+contract CryptoQuiltros is AccessControl, DetailedERC721 {
     using SafeMath for uint256;
     event TokenCreated(
         uint256 tokenId, 

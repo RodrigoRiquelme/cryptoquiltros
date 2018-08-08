@@ -1,7 +1,7 @@
-var CryptoDoggies = artifacts.require('CryptoDoggies');
+var CryptoQuiltros = artifacts.require('CryptoQuiltros');
 
-contract('CryptoDoggies', function(accounts){
-    var helpfulFunctions = require('./utils/CryptoDoggiesUtils')(CryptoDoggies, accounts);
+contract('CryptoQuiltros', function(accounts){
+    var helpfulFunctions = require('./utils/CryptoQuiltrosUtils')(CryptoQuiltros, accounts);
     var hfn = Object.keys(helpfulFunctions);
     for (var i = 0; i < hfn.length; i++) {
       global[hfn[i]] = helpfulFunctions[hfn[i]];

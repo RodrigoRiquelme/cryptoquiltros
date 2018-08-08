@@ -1,5 +1,5 @@
 {
-  "name": "cryptodoggies",
+  "name": "cryptoquiltros",
   "version": "1.0.0",
   "description": "Purchase your favourite Digital Crypto Quiltros on the blockchain",
   "keywords": [
@@ -7,7 +7,7 @@
     "ethereum",
     "smart",
     "contracts",
-    "cryptodoggies"
+    "cryptoquiltros"
   ],
   "repository": {
     "type": "git",
