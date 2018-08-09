@@ -1,5 +1,5 @@
-var CryptoDoggies = artifacts.require('Cryptodoggies.sol');
+var CryptoQuiltros = artifacts.require('CryptoQuiltros.sol');
 
 module.exports = function (deployer) {
-    deployer.deploy(CryptoDoggies);
+    deployer.deploy(CryptoQuiltros);
 }
