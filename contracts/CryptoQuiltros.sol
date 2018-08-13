@@ -164,6 +164,7 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
         require(msg.value >= sellingPrice);
 
         _transfer(oldOwner, newOwner, _tokenId);
+        tokenIdToPrice[_tokenId] = nextPriceOf(_tokenId);
         emit TokenSold(
             _tokenId,
             doggies[_tokenId].name,
@@ -261,7 +262,7 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
     }
 
     function symbol() public view returns(string _name) {
-        _name = "CQT";
+        _name = "CQTS";
     }
 
     function _owns(address _claimant, uint256 _tokenId) private view returns (bool) {
