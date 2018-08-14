@@ -1,7 +1,7 @@
 /* Main Object to manage Contract interactions */
 var App = {
   contracts: {},
-  CryptoQuiltrosAddress: '0x8292f7272182ADd958E7Cd0B883a4F1E1C2292A2',
+  CryptoQuiltrosAddress: '0x39443E56E1E5e01Cb66728495B9B2C6D3f3c26CE',
 
   init() {
     return App.initWeb3();

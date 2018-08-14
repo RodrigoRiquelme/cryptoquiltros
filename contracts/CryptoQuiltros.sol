@@ -72,6 +72,8 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
     }
 
     function _createToken(string _name, bytes5 _dna, address _owner, uint256 _price) private {
+        require(bytes(_name).length > 0);
+
         Doggy memory _doggy = Doggy({
             name: _name,
             dna: _dna
