@@ -28,7 +28,7 @@ var App = {
 
   handlePurchase(event) {
     event.preventDefault();
-    var doggyId = parseInt($(event.target.elements).closest('.btn-buy').data('id'));
+    var quiltroId = parseInt($(event.target.elements).closest('.btn-buy').data('id'));
 
     web3.eth.getAccounts((error, accounts) => {
       if (error) {
@@ -37,8 +37,8 @@ var App = {
       var account = accounts[0];
 
       let contractInstance = App.contracts.CryptoQuiltros.at(App.CryptoQuiltrosAddress);
-      contractInstance.priceOf(doggyId).then((price) => {
-        return contractInstance.purchase(doggyId, {
+      contractInstance.priceOf(quiltroId).then((price) => {
+        return contractInstance.purchase(quiltroId, {
           from: account,
           value: price
         }).then(result => App.loadQuiltros()).catch((err) => {
@@ -70,35 +70,35 @@ var App = {
     });
   },
 
-  getQuiltroDetails(doggyId, localAddress) {
+  getQuiltroDetails(quiltroId, localAddress) {
     let contractInstance = App.contracts.CryptoQuiltros.at(App.CryptoQuiltrosAddress);
-    return contractInstance.getToken(doggyId).then((doggy) => {
-      var doggyJson = {
-        'doggyId'   : doggyId,
-        'doggyName' : doggy[0],
-        'doggyDna'  : doggy[1],
-        'doggyPrice': web3.fromWei(doggy[2]).toNumber(),
-        'doggyNextPrice': web3.fromWei(doggy[3]).toNumber(),
-        'ownerAddress': doggy[4]
+    return contractInstance.getToken(quiltroId).then((quiltro) => {
+      var quiltroJson = {
+        'quiltroId'   : quiltroId,
+        'quiltroName' : quiltro[0],
+        'quiltroDna'  : quiltro[1],
+        'quiltroPrice': web3.fromWei(quiltro[2]).toNumber(),
+        'quiltroNextPrice': web3.fromWei(quiltro[3]).toNumber(),
+        'ownerAddress': quiltro[4]
       }
-      if (doggyJson.ownerAddress !== localAddress) {
-        loadDoggy(
-          doggyJson.doggyId,
-          doggyJson.doggyName,
-          doggyJson.doggyDna,
-          doggyJson.doggyPrice,
-          doggyJson.doggyNextPrice,
-          doggyJson.ownerAddress,
+      if (quiltroJson.ownerAddress !== localAddress) {
+        loadQuiltro(
+          quiltroJson.quiltroId,
+          quiltroJson.quiltroName,
+          quiltroJson.quiltroDna,
+          quiltroJson.quiltroPrice,
+          quiltroJson.quiltroNextPrice,
+          quiltroJson.ownerAddress,
           false
         );
       } else {
-        loadDoggy(
-          doggyJson.doggyId,
-          doggyJson.doggyName,
-          doggyJson.doggyDna,
-          doggyJson.doggyPrice,
-          doggyJson.doggyNextPrice,
-          doggyJson.ownerAddress,
+        loadQuiltro(
+          quiltroJson.quiltroId,
+          quiltroJson.quiltroName,
+          quiltroJson.quiltroDna,
+          quiltroJson.quiltroPrice,
+          quiltroJson.quiltroNextPrice,
+          quiltroJson.ownerAddress,
           true
         );
       }
@@ -108,15 +108,15 @@ var App = {
   },
 
   bindEvents() {
-    $(document).on('submit', 'form.doggy-purchase', App.handlePurchase);
+    $(document).on('submit', 'form.quiltro-purchase', App.handlePurchase);
   }
 
 };
 
-/* Generates a Doggy image based on Doggy DNA */
-function generateDoggyImage(doggyId, size, canvas){
+/* Generates a Quiltro image based on Quiltro DNA */
+function generateQuiltroImage(quiltroId, size, canvas){
   size = size || 10;
-  var data = doggyidparser(doggyId);
+  var data = doggyidparser(quiltroId);
   var canvas = document.getElementById(canvas);
   canvas.width = size * data.length;
   canvas.height = size * data[1].length;
@@ -135,7 +135,7 @@ function generateDoggyImage(doggyId, size, canvas){
 }
 
 
-function loadDoggy(doggyId, doggyName, doggyDna, doggyPrice, doggyNextPrice, ownerAddress, locallyOwned) {
+function loadQuiltro(quiltroId, quiltroName, quiltroDna, quiltroPrice, quiltroNextPrice, ownerAddress, locallyOwned) {
   var cardRow = $('#card-row');
   var cardTemplate = $('#card-template');
 
@@ -145,23 +145,23 @@ function loadDoggy(doggyId, doggyName, doggyDna, doggyPrice, doggyNextPrice, own
     cardTemplate.find('.btn-buy').removeAttr('disabled');
   }
 
-  cardTemplate.find('.doggy-name').text(doggyName);
-  cardTemplate.find('.doggy-canvas').attr('id', 'doggy-canvas-' + doggyId);
-  cardTemplate.find('.doggy-dna').text(doggyDna);
-  cardTemplate.find('.doggy-owner').text(ownerAddress);
-  cardTemplate.find('.doggy-owner').attr('href' + 'http://etherscan.io/address/' + ownerAddress);
-  cardTemplate.find('.btn-buy').attr('data-id', doggyId);
-  cardTemplate.find('.doggy-price').text(parseFloat(doggyPrice).toFixed(4));
-  cardTemplate.find('.doggy-next-price').text(parseFloat(doggyNextPrice).toFixed(4));
+  cardTemplate.find('.quiltro-name').text(quiltroName);
+  cardTemplate.find('.quiltro-canvas').attr('id', 'quiltro-canvas-' + quiltroId);
+  cardTemplate.find('.quiltro-dna').text(quiltroDna);
+  cardTemplate.find('.quiltro-owner').text(ownerAddress);
+  cardTemplate.find('.quiltro-owner').attr('href' + 'http://etherscan.io/address/' + ownerAddress);
+  cardTemplate.find('.btn-buy').attr('data-id', quiltroId);
+  cardTemplate.find('.quiltro-price').text(parseFloat(quiltroPrice).toFixed(4));
+  cardTemplate.find('.quiltro-next-price').text(parseFloat(quiltroNextPrice).toFixed(4));
 
   cardRow.append(cardTemplate.html());
-  generateDoggyImage(doggyDna, 3, 'doggy-canvas-' + doggyId);
+  generateQuiltroImage(quiltroDna, 3, 'quiltro-canvas-' + quiltroId);
 }
 
 /* Called When Document has loaded */
 jQuery(document).ready(
   function ($) {
 		App.init();
-		loadDoggy(0, 'Steve', '0x003f04e2e4', '0.100', '0.200', '00x003f04e2e467', false)
+		loadQuiltro(0, 'Steve', '0x003f04e2e4', '0.100', '0.200', '00x003f04e2e467', false)
   }
 );
