@@ -55,7 +55,6 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
         require(_price >= startingPrice);
 
         bytes5 _dna = _generateRandomDna();
-        log0(bytes32(_dna));
         _createToken(_name, _dna, address(this), _price);
     }
 
@@ -72,7 +71,7 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
     }
 
     function _createToken(string _name, bytes5 _dna, address _owner, uint256 _price) private {
-        require(bytes(_name).length > 0);
+        require(bytes(_name).length > 0, "Name cannot be empty");
 
         Doggy memory _doggy = Doggy({
             name: _name,
@@ -140,7 +139,7 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
     }
 
     function withdrawBalance(address _to, uint256 _amount) public onlyCEO {
-        require(_amount <= address(this).balance);
+        require(_amount <= address(this).balance, "_amount must be lower than current balance.");
 
         if (_amount == 0) {
             _amount = address(this).balance;
@@ -161,7 +160,7 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
         require(oldOwner != address(0), "oldOwner can't be purchase this token");
         require(newOwner != address(0), "newOwner can't be purchase thistoken");
         require(oldOwner != newOwner, "newOwner can't be the same as oldOwner");
-        require(!_isContract(newOwner));
+        require(!_isContract(newOwner), "Contract size is not valid");
         require(sellingPrice > 0, "Selling price must be greater than 0");
         require(msg.value >= sellingPrice, "Selling price cant be greater than msg.value");
 
@@ -288,7 +287,9 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
 
     function _isContract(address addr) private view returns (bool) {
         uint256 size;
-        assembly { size := extcodesize(addr) }
+        assembly { 
+            size := extcodesize(addr) 
+        }
         return size > 0;
     }
 } 
