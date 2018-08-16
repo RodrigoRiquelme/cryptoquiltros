@@ -1,7 +1,7 @@
 /* Main Object to manage Contract interactions */
 var App = {
   contracts: {},
-  CryptoQuiltrosAddress: '0x39443E56E1E5e01Cb66728495B9B2C6D3f3c26CE',
+  CryptoQuiltrosAddress: '',
 
   init() {
     return App.initWeb3();
@@ -53,7 +53,7 @@ var App = {
       if (err != null) {
         console.error('Ha ocurrido un error ' + err);
       } else if (accounts.length === 0) {
-        console.log('Usuario no logueado a Metamask');
+        alert('Por favor inicie sesión en Metamask.');
       } else {
         $('#card-row').children().remove();
       }

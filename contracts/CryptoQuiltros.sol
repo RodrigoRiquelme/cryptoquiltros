@@ -158,12 +158,12 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
         address newOwner = msg.sender;
         uint256 sellingPrice = priceOf(_tokenId);
 
-        require(oldOwner != address(0));
-        require(newOwner != address(0));
-        require(oldOwner != newOwner);
+        require(oldOwner != address(0), "oldOwner can't be purchase this token");
+        require(newOwner != address(0), "newOwner can't be purchase thistoken");
+        require(oldOwner != newOwner, "newOwner can't be the same as oldOwner");
         require(!_isContract(newOwner));
-        require(sellingPrice > 0);
-        require(msg.value >= sellingPrice);
+        require(sellingPrice > 0, "Selling price must be greater than 0");
+        require(msg.value >= sellingPrice, "Selling price cant be greater than msg.value");
 
         _transfer(oldOwner, newOwner, _tokenId);
         tokenIdToPrice[_tokenId] = nextPriceOf(_tokenId);
