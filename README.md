@@ -4,6 +4,7 @@
     <a href="https://www.ethereum.org/" target="_blank"><img src="https://img.shields.io/badge/Ethereum-ETH-blue.svg" alt="Ethereum"></a>
     <a href="https://solidity.readthedocs.io" target="_blank"><img src="https://img.shields.io/badge/Solidity-%5E0.4.18-blue.svg" alt="Solidity"></a>
     <a href="https://nodejs.org/" target="_blank"><img src="https://img.shields.io/badge/Node.js-%5E9.2.0-blue.svg" alt="Node.js"></a>
+    [![Build Status](https://travis-ci.org/RodrigoRiquelme/cryptoquiltros.svg?branch=master)](https://travis-ci.org/RodrigoRiquelme/cryptoquiltros)
 </div>
 ##Developing This Contract
 
