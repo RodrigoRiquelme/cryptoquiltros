@@ -160,7 +160,7 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
         require(oldOwner != address(0), "oldOwner can't be purchase this token");
         require(newOwner != address(0), "newOwner can't be purchase thistoken");
         require(oldOwner != newOwner, "newOwner can't be the same as oldOwner");
-        require(!_isContract(newOwner), "Contract size is not valid");
+        require(!_isContract(newOwner), "Contract is not valida");
         require(sellingPrice > 0, "Selling price must be greater than 0");
         require(msg.value >= sellingPrice, "Selling price cant be greater than msg.value");
 
@@ -292,4 +292,4 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
         }
         return size > 0;
     }
-} 
+}
