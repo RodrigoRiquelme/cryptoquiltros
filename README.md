@@ -9,7 +9,7 @@
 
 In order to develop this contract the following steps were taken to setup the environment.
 
-Install and run Ganache CLI (formally you would have used TestRPC). Alternatively you can install [Ganache](http://truffleframework.com/ganache/) UI.
+Install and run Ganache CLI. Alternatively you can install [Ganache](http://truffleframework.com/ganache/) UI.
 
 ```
 $ npm install -g ganache-cli
