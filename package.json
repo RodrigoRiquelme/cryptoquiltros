@@ -23,16 +23,17 @@
     "ethereumjs-util": "^5.1.4",
     "lite-server": "^2.3.0",
     "solc": "^0.4.20",
+    "solidity-coverage": "^0.5.4",
     "solidity-parser": "^0.4.0",
-    "truffle": "^4.1.0",
+    "truffle": "^4.1.14",
     "truffle-hdwallet-provider": "0.0.3"
   },
   "dependencies": {
     "jsonfile": "^4.0.0",
     "npm": "^5.8.0",
-    "truffle-core": "^4.1.8",
+    "truffle-core": "^4.1.14",
     "web3": "^0.20.5",
-    "zeppelin-solidity": "^1.7.0"
+    "zeppelin-solidity": "^1.12.0"
   },
   "directories": {
     "test": "test"
@@ -40,6 +41,7 @@
   "scripts": {
     "dev": "lite-server",
     "test": "scripts/test.sh",
+    "coverage": "scripts/coverage.sh",
     "compile": "truffle compile",
     "console": "truffle console",
     "migrate": "truffle migrate --reset"
