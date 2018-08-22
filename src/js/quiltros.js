@@ -1,7 +1,7 @@
 /* Main Object to manage Contract interactions */
 var App = {
   contracts: {},
-  CryptoQuiltrosAddress: '',
+  CryptoQuiltrosAddress: '0x39443e56e1e5e01cb66728495b9b2c6d3f3c26ce',
 
   init() {
     return App.initWeb3();
@@ -116,7 +116,7 @@ var App = {
 /* Generates a Quiltro image based on Quiltro DNA */
 function generateQuiltroImage(quiltroId, size, canvas){
   size = size || 10;
-  var data = doggyidparser(quiltroId);
+  var data = quiltroidparser(quiltroId);
   var canvas = document.getElementById(canvas);
   canvas.width = size * data.length;
   canvas.height = size * data[1].length;
