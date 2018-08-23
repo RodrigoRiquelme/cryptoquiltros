@@ -1,5 +1,5 @@
 <div align = "center">
-    <h1>CryptoQuiltros<em>DApp</em></h1>
+    <h1>CryptoQuiltros<em> DApp</em></h1>
     <p>Purchase your favorite quiltro puppies on the blockchain.</p>
     <a href="https://www.ethereum.org/" target="_blank"><img src="https://img.shields.io/badge/Ethereum-ETH-blue.svg" alt="Ethereum"></a>
     <a href="https://solidity.readthedocs.io" target="_blank"><img src="https://img.shields.io/badge/Solidity-%5E0.4.18-blue.svg" alt="Solidity"></a>
@@ -7,20 +7,20 @@
     <a href="https://travis-ci.org/RodrigoRiquelme/cryptoquiltros" target="_blank"><img src="https://travis-ci.org/RodrigoRiquelme/cryptoquiltros.svg?branch=master" alt="Build Status"></a>
     <a href="https://coveralls.io/github/RodrigoRiquelme/cryptoquiltros?branch=master"><img src="https://coveralls.io/repos/github/RodrigoRiquelme/cryptoquiltros/badge.svg?branch=master" alt="Coverage Status" /></a>
 </div>
-##Developing This Contract
+<h3>Ambientación</h3>
 
-In order to develop this contract the following steps were taken to setup the environment.
+Para levantar un ambiente de desarrollo debes seguir los siguientes pasos.
 
-Install and run Ganache CLI. Alternatively you can install [Ganache](http://truffleframework.com/ganache/) UI.
+Instalar Ganache CLI. Cómo alternativa puedes instalar [Ganache](http://truffleframework.com/ganache/) UI.
 
 ```
 $ npm install -g ganache-cli
 $ ganache-cli
 ```
 
-When you run Ganache you'll be presented with 10 accounts with private keys. The RPC service that you can interact with the blockchain through is also available on `localhost:8545` for the CLI version and `localhost:7545` for the GUI.
+Ganache creará 10 cuentas Ethereum en un blockchain local. El servicio RPC para interactuar con este blockchain es `localhost:8545` para la versión CLI y `localhost:7545` para el GUI.
 
-Navigate into the root of this project and install truffle (if you haven't already got it). Run the truffle test command to compile and test the contracts.
+Instalar Ganache. se usa el comando `ganache test` para compilar y ejecutar las pruebas.
 
 ```bash
 npm install -g truffle

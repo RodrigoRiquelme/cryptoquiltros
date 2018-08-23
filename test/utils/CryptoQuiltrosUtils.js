@@ -3,7 +3,7 @@ module.exports = function(CryptoQuiltros, accounts) {
         it('totalSupply debe ser igual a ' + expectedValue, function(done) {
             CryptoQuiltros.deployed().then(function(instance) {
                 instance.totalSupply.call().then(function(totalSupply) {
-                    assert.equal(totalSupply, expectedValue, 'totalSupply es diferente ' + expectedValue);
+                    assert.equal(totalSupply, expectedValue, 'totalSupply es diferente a ' + expectedValue);
                 }).then(done).catch(done);
             });
         });
