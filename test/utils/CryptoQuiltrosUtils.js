@@ -9,7 +9,7 @@ module.exports = function(CryptoQuiltros, accounts) {
         });
     }
 
-    function checkDoggyCreation(name) {
+    function checkQuiltroCreation(name) {
         it('createToken debe crear a un quiltro llamado ' + name, function(done) {
             CryptoQuiltros.deployed().then(async function(instance) {
                 await instance.createToken(name, { from: accounts[0] }).then(function(result){
@@ -21,7 +21,7 @@ module.exports = function(CryptoQuiltros, accounts) {
 
     return {
         checkTotalSupply: checkTotalSupply,
-        checkDoggyCreation: checkDoggyCreation,
+        checkQuiltroCreation: checkQuiltroCreation,
     }
 }
 

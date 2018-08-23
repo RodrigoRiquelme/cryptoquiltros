@@ -35,12 +35,12 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
     mapping (address => uint256) private ownershipTokenCount;
     mapping (uint256 => address) private tokenIdToApproved;
 
-    struct Doggy {
+    struct Quiltro {
         string name;
         bytes5 dna;
     }
 
-    Doggy[] private doggies;
+    Quiltro[] private quiltros;
 
     uint256 private startingPrice = 0.01 ether;
     bool private erc721enabled = false;
@@ -73,12 +73,12 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
     function _createToken(string _name, bytes5 _dna, address _owner, uint256 _price) private {
         require(bytes(_name).length > 0, "Name cannot be empty");
 
-        Doggy memory _doggy = Doggy({
+        Quiltro memory _quiltro = Quiltro({
             name: _name,
             dna: _dna
         });
 
-        uint256 newTokenId = doggies.push(_doggy) - 1;
+        uint256 newTokenId = quiltros.push(_quiltro) - 1;
         tokenIdToPrice[newTokenId] = _price;
 
         emit TokenCreated(newTokenId, _name, _dna, _price, _owner);
@@ -93,8 +93,8 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
         uint256 _nextPrice,
         address _owner
     ) {
-        _tokenName = doggies[_tokenId].name;
-        _dna = doggies[_tokenId].dna;
+        _tokenName = quiltros[_tokenId].name;
+        _dna = quiltros[_tokenId].dna;
         _price = tokenIdToPrice[_tokenId];
         _nextPrice = nextPriceOf(_tokenId);
         _owner = tokenIdToOwner[_tokenId];
@@ -168,8 +168,8 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
         tokenIdToPrice[_tokenId] = nextPriceOf(_tokenId);
         emit TokenSold(
             _tokenId,
-            doggies[_tokenId].name,
-            doggies[_tokenId].dna,
+            quiltros[_tokenId].name,
+            quiltros[_tokenId].dna,
             sellingPrice,
             priceOf(_tokenId),
             oldOwner,
@@ -217,7 +217,7 @@ contract CryptoQuiltros is AccessControl, DetailedERC721 {
     }
 
     function totalSupply() public view returns (uint256 _totalSupply) {
-        _totalSupply = doggies.length;
+        _totalSupply = quiltros.length;
     }
 
     function balanceOf(address _owner) public view returns (uint256 _balance) {
