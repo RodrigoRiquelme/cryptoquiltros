@@ -33,3 +33,4 @@ build/
 
 # MacOS
 .DS_Store/
+/src/js/lib/quiltroidparser.js

@@ -16,6 +16,7 @@
   "bugs": {
     "url": "https://github.com/RodrigoRiquelme/cryptoquiltros/issues"
   },
+  "license": "MIT",
   "devDependencies": {
     "bignumber.js": "^6.0.0",
     "coveralls": "^3.0.2",
@@ -31,6 +32,7 @@
   "dependencies": {
     "jsonfile": "^4.0.0",
     "npm": "^5.8.0",
+    "quiltro-dna-parser": "git+https://github.com/RodrigoRiquelme/quiltro-dna-parser.git",
     "truffle-core": "^4.1.14",
     "web3": "^0.20.5",
     "zeppelin-solidity": "^1.12.0"
@@ -40,6 +42,7 @@
   },
   "scripts": {
     "dev": "lite-server",
+    "postinstall": "scripts/postinstall.sh",
     "test": "scripts/test.sh",
     "compile": "truffle compile",
     "console": "truffle console",
