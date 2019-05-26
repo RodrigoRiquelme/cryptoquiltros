@@ -9,6 +9,9 @@
     "contracts",
     "cryptoquiltros"
   ],
+  "engines": {
+    "node": "10"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RodrigoRiquelme/cryptoquiltros.git"
