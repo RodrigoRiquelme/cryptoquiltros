@@ -28,5 +28,5 @@ npm run test
 npm run dev
 ```
 
-Ropsten Testnet Criptoquiltros (CQTS)
+Ropsten Testnet Criptoquiltros (CQTS
 https://ropsten.etherscan.io/token/0x8292f7272182add958e7cd0b883a4f1e1c2292a2
