@@ -34,9 +34,9 @@
   },
   "dependencies": {
     "jsonfile": "^4.0.0",
-    "npm": "^6.14.6",
+    "npm": "^9.4.1",
     "quiltro-dna-parser": "git+https://github.com/RodrigoRiquelme/quiltro-dna-parser.git",
-    "truffle-core": "^4.1.14",
+    "truffle-core": "^4.1.17",
     "web3": "^0.20.5",
     "zeppelin-solidity": "^1.12.0"
   },
