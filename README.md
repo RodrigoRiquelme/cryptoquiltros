@@ -9,18 +9,18 @@
 </div>
 <h3>Ambientación</h3>
 
-Para levantar un ambiente de desarrollo debes seguir los siguientes pasos.
+To lift a local dev environment you must follow the next steps.
 
-Instalar Ganache CLI. Cómo alternativa puedes instalar [Ganache](http://truffleframework.com/ganache/) UI.
+Install Ganache CLI. As alternative you can install [Ganache](http://truffleframework.com/ganache/) UI.
 
 ```
 $ npm install -g ganache-cli
 $ ganache-cli
 ```
 
-Ganache creará 10 cuentas Ethereum en un blockchain local. El servicio RPC para interactuar con este blockchain es `localhost:8545` para la versión CLI y `localhost:7545` para el GUI.
+Ganache will create 10 Ethereum accounts on a local blockchain. The RPC service to interact with it es `localhost:8545` para la versión CLI y `localhost:7545` para el GUI.
 
-Instalar Ganache. se usa el comando `ganache test` para compilar y ejecutar las pruebas.
+Install Truffle. use the command `ganache test` to compile and execute the tests.
 
 ```bash
 npm install -g truffle
